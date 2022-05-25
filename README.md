@@ -13,24 +13,18 @@ client_id = 'AAA'
 client_secret = 'BBB'
 api = FeedbackCompanyAPI(client_id, client_secret)
 response = api.post(
-	'orders',
-	{
-	    'external_id': 'Order 123', 
-	    'customer': {
-	      'email': 'info@example.com', 
-	      'fullname': 'John Doe' 
-	    },
-	    'invitation': {
-	      'delay': {
-	        'unit': 'days',
-	        'amount': 0
-	      },
-	      'reminder': {
-	        'unit': 'days',
-	        "amount": 7
-	      }
-	    },
-	}
+    'orders',
+    {
+        'external_id': 'Order 123', 
+        'customer': {
+            'email': 'info@example.com', 
+            'fullname': 'John Doe' 
+        },
+        'invitation': {
+            'delay': {'unit': 'days', 'amount': 0},
+            'reminder': {'unit': 'days', 'amount': 7}
+        },
+    }
 )
 ```
 
@@ -47,6 +41,6 @@ access_token = cache.get('feedbackcompany_access_token') # Replace with some sto
 api = FeedbackCompanyAPI(client_id, client_secret, access_token=access_token)
 response = api.get(...)
 if api.access_token != access_token:
-	# Store new access token
-	cache.set('feedbackcompany_access_token', api.access_token, 60*24*60*60)
+    # Store new access token
+    cache.set('feedbackcompany_access_token', api.access_token, 60*24*60*60)
 ```
