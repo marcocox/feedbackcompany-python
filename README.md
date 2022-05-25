@@ -3,6 +3,13 @@
 https://intercom.help/feedbackcompany/nl/collections/2424875-api-review-research-portal
 
 
+### Installation
+
+```
+pip install feedbackcompany
+```
+
+
 ### Usage
 
 First obtain a `client_id` and `client_secret`. Example to create an order and automatically send a review invite:
@@ -27,6 +34,7 @@ response = api.post(
     }
 )
 ```
+
 
 ### Persistent access token
 
